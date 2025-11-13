@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Escolas Parceiras — SIFE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Escolas parceiras do SIFE">
+</head>
+<body>
+  <header id="header" class="header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">SIFE</span>
+      </a>
+
+      <button id="btn-burger" class="burger" aria-label="Abrir menu" aria-expanded="false">
+        <span class="burger-bar"></span><span class="burger-bar"></span><span class="burger-bar"></span>
+      </button>
+
+      <nav id="nav" class="nav">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre Nós</a></li>
+          <li><a href="#contato" class="btn-outline">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Escolas Parceiras</h1>
+        <p class="lead">Rede de instituições que colaboram com as ações do SIFE.</p>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="section-head">
+        <h2>Parceiros</h2>
+        <li class="muted">Colégio São Bento</li>
+        <li class="muted">Colégio Pedro II</li>
+        <li class="muted">Escola Nova</li>
+      </div>
+
+      <div id="partners-list" class="partners-grid">
+        <!-- cards preenchidos por script.js -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>SIFE</strong>
+        <div class="muted">Sistema Integrado de Fiscalização Educacional</div>
+      </div>
+      <div class="footer-right">
+        <div class="muted">Sede: Rio de Janeiro - Centro</div>
+        <small class="muted">© <span id="year-3"></span> SIFE</small>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

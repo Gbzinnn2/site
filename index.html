@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SIFE — Sistema Integrado de Fiscalização Educacional</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="SIFE — Fiscalização e melhoria da qualidade educacional. Sede: Rio de Janeiro - Centro">
+</head>
+<body>
+  <header id="header" class="header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="SIFE - Sistema Integrado de Fiscalização Educacional">
+        <span class="brand-mark">SIFE</span>
+        <span class="brand-sub">Sistema Integrado de Fiscalização Educacional</span>
+      </a>
+
+      <button id="btn-burger" class="burger" aria-label="Abrir menu" aria-expanded="false">
+        <span class="burger-bar"></span><span class="burger-bar"></span><span class="burger-bar"></span>
+      </button>
+
+      <nav id="nav" class="nav" aria-label="Menu principal">
+        <ul>
+          <li><a href="sobre.html">Sobre Nós</a></li>
+          <li><a href="parceiros.html">Escolas Parceiras</a></li>
+          <li><a href="#contato" class="btn-outline">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1>Transparência e Qualidade na Educação</h1>
+          <p class="lead">No SIFE, fiscalizamos e apoiamos instituições para garantir conformidade normativa, promover melhores práticas pedagógicas e proteger o direito à educação de qualidade.</p>
+
+          <div class="cta-group">
+            <a class="btn-primary" href="sobre.html">Conheça o SIFE</a>
+            <a class="btn-secondary" href="parceiros.html">Escolas Parceiras</a>
+          </div>
+
+          <ul class="features">
+            <li>Auditoria escolar</li>
+            <li>Assessoria pedagógica</li>
+            <li>Relatórios & indicadores</li>
+          </ul>
+        </div>
+
+        <div class="hero-card">
+          <div class="card-inner">
+            <h3>Atuação</h3>
+            <p>Centro do Rio de Janeiro — atendemos escolas públicas e privadas no estado e oferecemos programas de capacitação e diagnóstico institucional.</p>
+            <a class="link-more" href="sobre.html">Saiba mais →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick info -->
+    <section class="info-bar">
+      <div class="container info-grid">
+        <div>
+          <strong>Missão</strong>
+          <p>Promover a qualidade educacional por meio da fiscalização responsável e do diálogo com as escolas.</p>
+        </div>
+        <div>
+          <strong>Visão</strong>
+          <p>Ser referência em governança escolar e melhoria contínua.</p>
+        </div>
+        <div>
+          <strong>Localização</strong>
+          <p>Rio de Janeiro — Centro</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partners preview -->
+    <section class="section container">
+      <div class="section-head">
+        <h2>Algumas escolas parceiras</h2>
+        <p class="muted">Parcerias que colaboram com boas práticas educacionais.</p>
+      </div>
+
+      <div id="partners-preview" class="partners-grid" aria-live="polite">
+        <!-- preenchido dinamicamente via script.js -->
+      </div>
+
+      <div class="center">
+        <a class="btn-ghost" href="parceiros.html">Ver todas as escolas</a>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contato" class="section section-contact container">
+      <div class="contact-grid">
+        <div class="contact-info card">
+          <h3>Contato</h3>
+          <p>Sede: Rua da Quintada 120 — Centro</p>
+          <p>Email: contato@sife.org.br</p>
+          <p>Telefone: (21)99876-4321</p>
+        </div>
+
+        <form id="contact-form" class="card contact-form" novalidate>
+          <h3>Envie uma mensagem</h3>
+          <div class="form-row">
+            <label for="nome">Nome</label>
+            <input id="nome" name="nome" type="text" required>
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required>
+          </div>
+          <div class="form-row">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+          </div>
+          <div class="form-actions">
+            <button class="btn-primary" type="submit">Enviar</button>
+            <small class="muted">* este formulário será enviado para um de nossos profissionais</small>
+          </div>
+          <div id="contact-msg" class="form-msg" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>SIFE</strong>
+        <div class="muted">Sistema Integrado de Fiscalização Educacional</div>
+      </div>
+
+      <div class="footer-right">
+        <div class="muted">Sede: Rio de Janeiro - Centro</div>
+        <small class="muted">© <span id="year"></span> SIFE — Todos os direitos reservados.</small>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
