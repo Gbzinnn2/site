@@ -4,12 +4,108 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SIFE — Sistema Integrado de Fiscalização Educacional</title>
+  <meta name="description" content="SIFE — Fiscalização e melhoria da qualidade educacional. Sede: Rio de Janeiro - Centro">
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
-  <meta name="description" content="SIFE — Fiscalização e melhoria da qualidade educacional. Sede: Rio de Janeiro - Centro">
+  <!-- Favicon (simple SVG data URI to avoid external file) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23224f7a' width='100' height='100' rx='15'/%3E%3Ctext x='50' y='55' font-size='46' text-anchor='middle' font-family='Inter,Arial,sans-serif' fill='%23fff'%3ES%3C/text%3E%3C/svg%3E">
+
+  <!-- Minimal polished styles (overrides default style.css if present) -->
+  <style>
+    :root{
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --primary:#1f6feb;
+      --accent:#0ea5a4;
+      --glass: rgba(255,255,255,0.7);
+      --radius:12px;
+      --container:1100px;
+      --shadow: 0 6px 20px rgba(16,24,40,0.08);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      background: linear-gradient(180deg,var(--bg),#fff);
+      color:#0f172a;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.55;
+    }
+
+    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
+
+    /* Header */
+    .header{backdrop-filter: blur(6px);position:sticky;top:0;z-index:60;background:rgba(255,255,255,0.72);border-bottom:1px solid rgba(15,23,42,0.04)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+    .brand-mark{background:linear-gradient(90deg,var(--primary),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800;font-size:18px}
+    .brand-sub{font-size:13px;color:var(--muted)}
+    .nav ul{list-style:none;margin:0;padding:0;display:flex;gap:18px;align-items:center}
+    .nav a{color:inherit;text-decoration:none;padding:8px 12px;border-radius:8px}
+    .nav a.btn-outline{border:1px solid rgba(15,23,42,0.06);color:var(--primary)}
+    .burger{display:none;border:0;background:transparent;padding:8px;cursor:pointer}
+    .burger-bar{display:block;width:22px;height:2px;background:#06204a;margin:4px 0;border-radius:2px}
+
+    /* Hero */
+    .hero{padding:64px 0}
+    .hero-grid{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:start}
+    .hero-content h1{font-size:36px;margin:0 0 12px}
+    .lead{color:var(--muted);font-size:17px;margin:0 0 18px}
+    .cta-group{display:flex;gap:12px;margin:14px 0}
+    .btn-primary{background:linear-gradient(90deg,var(--primary),var(--accent));color:#fff;padding:10px 16px;border-radius:10px;text-decoration:none;box-shadow:var(--shadow);display:inline-block}
+    .btn-secondary{background:#fff;border:1px solid rgba(15,23,42,0.06);padding:10px 14px;border-radius:10px;text-decoration:none;color:var(--primary)}
+    .features{display:flex;gap:12px;margin:18px 0 0;padding:0;list-style:none;color:var(--muted);font-weight:600}
+    .hero-card{background:linear-gradient(180deg,#fff, var(--glass));border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
+    .card-inner h3{margin:0 0 8px}
+    .link-more{text-decoration:none;color:var(--primary);font-weight:600}
+
+    /* Info bar */
+    .info-bar{margin-top:20px;padding:16px 0;background:linear-gradient(90deg,#fff,#f8fafc);border-radius:12px}
+    .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .info-grid strong{display:block;margin-bottom:6px}
+
+    /* Partners */
+    .section{margin:48px 0}
+    .section-head h2{margin:0 0 6px}
+    .muted{color:var(--muted)}
+    .partners-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+    .partner{background:var(--card);padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.06);display:flex;align-items:center;gap:12px}
+    .partner .logo{width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+
+    /* Contact */
+    .section-contact .contact-grid{display:grid;grid-template-columns:380px 1fr;gap:20px}
+    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:var(--shadow)}
+    .form-row{margin-bottom:12px}
+    label{display:block;margin-bottom:6px;font-size:13px}
+    input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(15,23,42,0.06);font-size:15px}
+    .form-actions{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+
+    /* Footer */
+    .footer{padding:18px 0;margin-top:36px;border-top:1px solid rgba(15,23,42,0.04)}
+    .footer-inner{display:flex;justify-content:space-between;align-items:center}
+
+    /* Small screens */
+    @media (max-width:900px){
+      .hero-grid{grid-template-columns:1fr;gap:20px}
+      .partners-grid{grid-template-columns:repeat(2,1fr)}
+      .info-grid{grid-template-columns:1fr}
+      .section-contact .contact-grid{grid-template-columns:1fr}
+      .nav{position:absolute;right:20px;top:70px;background:#fff;padding:12px;border-radius:10px;box-shadow:var(--shadow);display:none}
+      .nav.open{display:block}
+      .burger{display:block}
+    }
+    @media (max-width:520px){
+      .partners-grid{grid-template-columns:1fr}
+      .brand-sub{display:none}
+      .hero-content h1{font-size:26px}
+    }
+  </style>
 </head>
 <body>
   <header id="header" class="header">
@@ -49,7 +145,7 @@
           <ul class="features">
             <li>Auditoria escolar</li>
             <li>Assessoria pedagógica</li>
-            <li>Relatórios & indicadores</li>
+            <li>Relatórios &amp; indicadores</li>
           </ul>
         </div>
 
@@ -89,11 +185,11 @@
       </div>
 
       <div id="partners-preview" class="partners-grid" aria-live="polite">
-        <!-- preenchido dinamicamente via script.js -->
+        <!-- preenchido dinamicamente via script -->
       </div>
 
-      <div class="center">
-        <a class="btn-ghost" href="parceiros.html">Ver todas as escolas</a>
+      <div class="center" style="text-align:center;margin-top:18px;">
+        <a class="btn-secondary" href="parceiros.html">Ver todas as escolas</a>
       </div>
     </section>
 
@@ -125,7 +221,7 @@
             <button class="btn-primary" type="submit">Enviar</button>
             <small class="muted">* este formulário será enviado para um de nossos profissionais</small>
           </div>
-          <div id="contact-msg" class="form-msg" aria-live="polite"></div>
+          <div id="contact-msg" class="form-msg" aria-live="polite" style="margin-top:10px;color:var(--muted)"></div>
         </form>
       </div>
     </section>
@@ -139,13 +235,60 @@
         <div class="muted">Sistema Integrado de Fiscalização Educacional</div>
       </div>
 
-      <div class="footer-right">
+      <div class="footer-right" style="text-align:right">
         <div class="muted">Sede: Rio de Janeiro - Centro</div>
         <small class="muted">© <span id="year"></span> SIFE — Todos os direitos reservados.</small>
       </div>
     </div>
   </footer>
 
-  <script src="script.js" defer></script>
+  <!-- Small inline script to power UI niceties -->
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Burger menu
+    const btnBurger = document.getElementById('btn-burger');
+    const nav = document.getElementById('nav');
+    btnBurger.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      btnBurger.setAttribute('aria-expanded', String(open));
+    });
+
+    // Small partners demo (replace with real data in script.js)
+    const partners = [
+      {name:'Escola Modelo A', city:'Rio de Janeiro'},
+      {name:'Colégio São Bento', city:'Niterói'},
+      {name:'Escola Nova', city:'Duque de Caxias'},
+      {name:'Centro Educacional Leste', city:'Belford Roxo'},
+      {name:'Instituto Pioneiro', city:'São Gonçalo'},
+      {name:'Colégio Horizonte', city:'Nilópolis'}
+    ];
+    const preview = document.getElementById('partners-preview');
+    partners.slice(0,6).forEach(p => {
+      const el = document.createElement('div');
+      el.className = 'partner';
+      el.innerHTML = '<div class="logo">'+ (p.name.split(' ').slice(0,1)[0][0] || 'E') +'</div><div><strong>'+p.name+'</strong><div class="muted" style="font-size:13px">'+p.city+'</div></div>';
+      preview.appendChild(el);
+    });
+
+    // Basic contact form handling (demo only)
+    const form = document.getElementById('contact-form');
+    const msg = document.getElementById('contact-msg');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nome = form.nome.value.trim();
+      const email = form.email.value.trim();
+      const mensagem = form.mensagem.value.trim();
+      if(!nome || !email || !mensagem){
+        msg.textContent = 'Por favor preencha todos os campos.';
+        msg.style.color = '#c02424';
+        return;
+      }
+      msg.style.color = 'var(--muted)';
+      msg.textContent = 'Mensagem enviada! Em breve responderemos pelo e-mail informado.';
+      form.reset();
+    });
+  </script>
 </body>
 </html>
