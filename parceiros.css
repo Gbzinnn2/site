@@ -1,0 +1,98 @@
+  :root{
+    --bg:#f6f8fb;
+    --card:#ffffff;
+    --muted:#6b7280;
+    --accent:#0b67ff;
+    --text:#0f1724;
+    --glass: rgba(255,255,255,0.6);
+    --radius:12px;
+    --container:1100px;
+  }
+
+  /* Reset & base */
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background:linear-gradient(180deg,var(--bg),#fff 60%);
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.45;
+  }
+  .container{max-width:var(--container);margin:0 auto;padding:0 1rem}
+
+  /* Header */
+  .header{
+    position:sticky;top:0;z-index:40;
+    backdrop-filter:blur(6px);
+    background:rgba(255,255,255,0.85);
+    border-bottom:1px solid rgba(15,23,36,0.06);
+  }
+  .header-inner{display:flex;align-items:center;justify-content:space-between;padding:0.85rem 0}
+  .brand{display:flex;align-items:center;text-decoration:none;color:var(--text);font-weight:700}
+  .brand-mark{
+    background:linear-gradient(90deg,var(--accent),#3aa0ff);
+    color:#fff;padding:0.35rem 0.6rem;border-radius:6px;font-weight:800;
+    letter-spacing:0.06em;margin-right:0.6rem;font-size:0.95rem
+  }
+
+  /* Burger */
+  .burger{display:inline-grid;place-items:center;border:0;background:transparent;padding:0.4rem;border-radius:8px;cursor:pointer}
+  .burger-bar{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;margin:3px 0;transition:transform .18s ease,opacity .18s ease}
+
+  /* Navigation */
+  .nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1rem;align-items:center}
+  .nav a{color:var(--text);text-decoration:none;padding:0.45rem 0.6rem;border-radius:8px;transition:background .15s}
+  .nav a:hover{background:rgba(11,103,255,0.07)}
+  .btn-outline{border:1px solid rgba(11,103,255,0.12);padding:0.35rem 0.6rem;border-radius:8px;color:var(--accent)}
+
+  /* Responsive nav fallback */
+  @media (max-width:800px){
+    .nav{position:absolute;left:0;right:0;top:100%;background:var(--card);padding:0.5rem;border-radius:10px;margin:0.5rem;box-shadow:0 8px 30px rgba(15,23,36,0.08);display:none}
+    .nav[aria-hidden="false"], .nav.open{display:block}
+    .nav ul{flex-direction:column;gap:0.25rem}
+  }
+
+  /* Hero */
+  .page-hero{padding:3.2rem 0;background:
+    radial-gradient(600px 240px at 10% 10%, rgba(11,103,255,0.06), transparent 8%),
+    radial-gradient(420px 160px at 90% 90%, rgba(58,160,255,0.04), transparent 6%);}
+  .page-hero h1{margin:0;font-size:2.1rem;letter-spacing:-0.02em}
+  .lead{margin-top:0.6rem;color:var(--muted);font-size:1rem}
+
+  /* Sections */
+  .section{padding:2rem 0}
+  .section-head{display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1rem}
+  .section-head h2{margin:0;font-size:1.25rem}
+  .muted{color:var(--muted);font-size:0.95rem}
+
+  /* Partners grid */
+  .partners-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+  @media (max-width:980px){.partners-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:620px){.partners-grid{grid-template-columns:1fr}}
+
+  .partners-grid .partner-card{
+    background:var(--card);padding:1rem;border-radius:var(--radius);box-shadow:0 6px 20px rgba(15,23,36,0.05);
+    display:flex;align-items:center;gap:0.9rem;transition:transform .18s ease,box-shadow .18s ease;border:1px solid rgba(15,23,36,0.03)
+  }
+  .partner-card:hover{transform:translateY(-6px);box-shadow:0 14px 40px rgba(15,23,36,0.08)}
+  .partner-avatar{
+    width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#2cc1ff);
+    display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.05rem;
+    flex:0 0 56px
+  }
+  .partner-body{flex:1}
+  .partner-title{font-weight:700;margin:0 0 0.2rem 0}
+  .partner-desc{margin:0;color:var(--muted);font-size:0.95rem}
+
+  /* Footer */
+  .footer{border-top:1px solid rgba(15,23,36,0.04);padding:1.2rem 0;background:transparent}
+  .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+  .footer-right{text-align:right}
+  @media (max-width:640px){.footer-inner{flex-direction:column;align-items:flex-start}.footer-right{text-align:left}}
+
+  /* Small helpers */
+  small.muted{color:var(--muted)}
+  a:focus{outline:3px solid rgba(11,103,255,0.12);outline-offset:3px}
