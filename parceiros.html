@@ -4,14 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Escolas Parceiras — SIFE</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
   <meta name="description" content="Escolas parceiras do SIFE">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="parceiros.css">
 </head>
 <body>
-  <header id="header" class="header">
+  <header id="header" class="header" role="banner">
     <div class="container header-inner">
-      <a class="brand" href="index.html">
+      <a class="brand" href="index.html" aria-label="Página inicial SIFE">
         <span class="brand-mark">SIFE</span>
       </a>
 
@@ -19,8 +19,8 @@
         <span class="burger-bar"></span><span class="burger-bar"></span><span class="burger-bar"></span>
       </button>
 
-      <nav id="nav" class="nav">
-        <ul>
+      <nav id="nav" class="nav" role="navigation" aria-label="Menu principal">
+        <ul class="nav-list">
           <li><a href="index.html">Início</a></li>
           <li><a href="sobre.html">Sobre Nós</a></li>
           <li><a href="#contato" class="btn-outline">Contato</a></li>
@@ -29,29 +29,40 @@
     </div>
   </header>
 
-  <main>
+  <main id="main" role="main">
     <section class="page-hero">
-      <div class="container">
+      <div class="container hero-inner">
         <h1>Escolas Parceiras</h1>
         <p class="lead">Rede de instituições que colaboram com as ações do SIFE.</p>
       </div>
     </section>
 
-    <section class="section container">
-      <div class="section-head">
-        <h2>Parceiros</h2>
-        <li class="muted">Colégio São Bento</li>
-        <li class="muted">Colégio Pedro II</li>
-        <li class="muted">Escola Nova</li>
-      </div>
+    <section class="section container" aria-labelledby="partners-title">
+      <header class="section-head">
+        <h2 id="partners-title">Parceiros</h2>
+        <p class="muted small">Instituições que apoiam e colaboram com nossos projetos.</p>
+      </header>
 
-      <div id="partners-list" class="partners-grid">
+      <ul id="partners-list" class="partners-grid" role="list">
+        <!-- Exemplo estático (o script pode preencher dinamicamente) -->
+        <li class="partner-card" role="article">
+          <h3 class="partner-name">Colégio São Bento</h3>
+          <p class="muted">Parceiro desde 2019</p>
+        </li>
+        <li class="partner-card" role="article">
+          <h3 class="partner-name">Colégio Pedro II</h3>
+          <p class="muted">Parceiro institucional</p>
+        </li>
+        <li class="partner-card" role="article">
+          <h3 class="partner-name">Escola Nova</h3>
+          <p class="muted">Rede colaboradora</p>
+        </li>
         <!-- cards preenchidos por script.js -->
-      </div>
+      </ul>
     </section>
   </main>
 
-  <footer class="footer">
+  <footer class="footer" role="contentinfo">
     <div class="container footer-inner">
       <div>
         <strong>SIFE</strong>
@@ -66,4 +77,4 @@
 
   <script src="script.js" defer></script>
 </body>
-</html>
+</html></div>
